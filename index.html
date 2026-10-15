@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Threat Modeling Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Threat Modeling Dashboard</h1>
+    <p>Identify risks and prioritize defensive controls.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>1. System Assets</h2>
+      <ul>
+        <li>User accounts and authentication</li>
+        <li>Application database</li>
+        <li>API endpoints</li>
+        <li>External services</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>2. Threat Register</h2>
+      <form id="threatForm">
+        <label for="threat">Threat description</label>
+        <input id="threat" required
+          placeholder="e.g. Unauthorized data access">
+
+        <label for="likelihood">Likelihood (1–5)</label>
+        <select id="likelihood">
+          <option value="1">1 - Rare</option>
+          <option value="2">2 - Unlikely</option>
+          <option value="3" selected>3 - Possible</option>
+          <option value="4">4 - Likely</option>
+          <option value="5">5 - Almost certain</option>
+        </select>
+
+        <label for="impact">Impact (1–5)</label>
+        <select id="impact">
+          <option value="1">1 - Minimal</option>
+          <option value="2">2 - Low</option>
+          <option value="3" selected>3 - Moderate</option>
+          <option value="4">4 - High</option>
+          <option value="5">5 - Critical</option>
+        </select>
+
+        <button type="submit">Assess Risk</button>
+      </form>
+      <p id="result" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <h2>3. Defensive Checklist</h2>
+      <label><input type="checkbox"> Enable multi-factor authentication</label>
+      <label><input type="checkbox"> Validate and sanitize inputs</label>
+      <label><input type="checkbox"> Apply least-privilege access</label>
+      <label><input type="checkbox"> Encrypt sensitive data</label>
+      <label><input type="checkbox"> Enable logging and monitoring</label>
+      <label><input type="checkbox"> Back up data and test recovery</label>
+    </section>
+  </main>
+
+  <footer>
+    Educational threat-modeling tool.
+    Do not enter real passwords or sensitive data.
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
